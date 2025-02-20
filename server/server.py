@@ -9,7 +9,7 @@ from flask_jwt_extended import (
 from flask_bcrypt import Bcrypt
 from moviepy import VideoFileClip
 from werkzeug.utils import secure_filename
-from models import db, Video, User, Comment
+from server.models import db, Video, User, Comment
 
 os.makedirs("/instance", exist_ok=True)
 app = Flask(__name__)
