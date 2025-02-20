@@ -29,7 +29,7 @@ with app.app_context():
 # Папки для хранения медиа
 VIDEO_FOLDER = 'instance'
 PREVIEW_FOLDER = 'instance'
-IMG_FOLDER = 'instance'
+IMG_FOLDER = 'media/img'
 
 # Единый эндпоинт для доступа к видеофайлам
 @app.route('/media/video/<string:filename>', methods=['GET'])
