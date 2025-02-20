@@ -14,16 +14,8 @@ from models import db, Video, User, Comment
 
 app = Flask(__name__)
 
-host = os.getenv("MYSQLHOST")
-port = os.getenv("MYSQLPORT")
-user = os.getenv("MYSQLUSER")
-password = os.getenv("MYSQLPASSWORD")
-database = os.getenv("MYSQLDATABASE")
-url = os.getenv("MYSQL_URL")
-
 # Для PyMySQL префикс "mysql+pymysql://"
-app.config["SQLALCHEMY_DATABASE_URI"] = url
-
+app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("MYSQL_URL")
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 db = SQLAlchemy(app)
