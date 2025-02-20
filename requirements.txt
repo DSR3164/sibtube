@@ -1,6 +1,8 @@
 Flask
-Flask-SQLAlchemy
-Flask-Cors
-Flask-JWT-Extended
-Flask-Bcrypt
+Flask_SQLAlchemy
+Flask_Cors
+Flask_JWT_Extended
+Flask_Bcrypt
 moviepy
+gunicorn
+python-dotenv
