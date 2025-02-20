@@ -50,7 +50,7 @@ def serve_image(filename):
 def register():
     data = request.get_json()
     if not data or not all(k in data for k in ("username", "email", "password")):
-        return jsonify({"error": "Неверные данные"}), 400
+        return jsonify({"error": "Неверные данные", "data": data}), 400
 
     hashed_password = bcrypt.generate_password_hash(data['password']).decode('utf-8')
     new_user = User(username=data['username'], email=data['email'], password=hashed_password)
