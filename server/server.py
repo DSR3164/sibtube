@@ -68,7 +68,7 @@ def register():
 def login():
     data = request.get_json()
     if not data or not all(k in data for k in ("email", "password")):
-        return jsonify({"error": "Неверные данные"}), 400
+        return jsonify({"error": "Неверные данные", "data": data}), 400
 
     user = User.query.filter_by(email=data['email']).first()
     if not user or not bcrypt.check_password_hash(user.password, data['password']):
