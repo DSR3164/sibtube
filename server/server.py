@@ -19,9 +19,10 @@ port = os.getenv("MYSQLPORT")
 user = os.getenv("MYSQLUSER")
 password = os.getenv("MYSQLPASSWORD")
 database = os.getenv("MYSQLDATABASE")
+url = os.getenv("MYSQL_URL")
 
 # Для PyMySQL префикс "mysql+pymysql://"
-app.config["SQLALCHEMY_DATABASE_URI"] = f"mysql+pymysql://{user}:{password}@{host}:{port}/{database}"
+app.config["SQLALCHEMY_DATABASE_URI"] = url
 
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
