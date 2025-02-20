@@ -1,3 +1,3 @@
-const pathh = "https://${process.env.REACT_APP_URL}"
+const pathh = "https://sibtube-production.up.railway.app"
 console.log(pathh)
 export default pathh
