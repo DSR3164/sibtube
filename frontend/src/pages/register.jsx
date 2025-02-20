@@ -126,14 +126,14 @@ const Register = () => {
                                     </div>
                                 </li>
                                 <li className="data-item">
-                                    <p className="name-data">Nickname</p>
+                                    <p className="name-data">Username</p>
                                     <div className="input-wrapper">
                                         <input
                                             type="text"
-                                            name="nickname"
+                                            name="username"
                                             required
                                             className="authin"
-                                            placeholder="Your nickname"
+                                            placeholder="Your username"
                                             value={formData.username}
                                             onChange={handleChange}
                                         />
