@@ -6,3 +6,4 @@ Flask_Bcrypt
 moviepy
 gunicorn
 python-dotenv
+psycopg2
