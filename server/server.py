@@ -27,8 +27,8 @@ with app.app_context():
     db.create_all()
 
 # Папки для хранения медиа
-VIDEO_FOLDER = 'instance'
-PREVIEW_FOLDER = 'instance'
+VIDEO_FOLDER = '/instance'
+PREVIEW_FOLDER = '/instance'
 IMG_FOLDER = 'media/img'
 
 # Единый эндпоинт для доступа к видеофайлам
