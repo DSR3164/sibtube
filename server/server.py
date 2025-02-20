@@ -49,7 +49,7 @@ def serve_image(filename):
 @app.route('/register', methods=['POST'])
 def register():
     data = request.get_json()
-
+    print(data)
     hashed_password = bcrypt.generate_password_hash(data['password']).decode('utf-8')
     new_user = User(username=data['username'], email=data['email'], password=hashed_password)
     try:
