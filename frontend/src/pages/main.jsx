@@ -54,7 +54,7 @@ const Mainn = () => {
                                 <img
                                     onClick={gomain}
                                     className="header-logo-link header-logo-pic"
-                                    src={`${pathh}/get_pic/logo.svg`}
+                                    src={`${pathh}/media/image/logo.svg`}
                                     alt="Yadro"
                                 />
                         </div>
@@ -64,20 +64,20 @@ const Mainn = () => {
                                     <img 
                                     className="logout-pic"
                                     onClick={handleLogout}
-                                    src={`${pathh}/get_pic/Exit.svg`}
+                                    src={`${pathh}/media/image/Exit.svg`}
                                     alt="Exit"/>
                                 )
                                 :(
                                     <img 
                                     className="logout-pic"
                                     onClick={handleLogout}
-                                    src={`${pathh}/get_pic/Enter.svg`}
+                                    src={`${pathh}/media/image/Enter.svg`}
                                     alt="Exit"/>
                                 )}
                                 <img
                                     className="user-pic"
                                     onClick={handleAccount}
-                                    src={`${pathh}/get_pic/UserCircle.svg`}
+                                    src={`${pathh}/media/image/UserCircle.svg`}
                                     alt="Registration"
                                 />
                             </div>
@@ -86,7 +86,7 @@ const Mainn = () => {
                 </div>
             </header>
             <main id="main" className="main">
-                <section className="all" style={{background: `url('${pathh}/get_pic/bg.png') no-repeat`}}>
+                <section className="all" style={{background: `url('${pathh}/media/image/bg.png') no-repeat`}}>
                     <section id="video_list" className="video_grid">
                         {videos.length > 0 ? (
                             videos.map((video) => (

@@ -102,7 +102,7 @@ const VideoPlayer = () => {
     return (
         <div>
             {video ? (
-                <section className="all" id={id} style={{background: `url('${pathh}/get_pic/bg.png') no-repeat`}}>
+                <section className="all" id={id} style={{background: `url('${pathh}/media/image/bg.png') no-repeat`}}>
                     <div className="video_wrapper">
                         <div className="video_controls">
                             <video
@@ -111,10 +111,10 @@ const VideoPlayer = () => {
                                 src={`${pathh + video.url}`}
                                 className="viewer"
                                 controls
-                                poster={`${pathh}/get_pic/bg2.png`}
+                                poster={`${pathh}/media/image/bg2.png`}
                             />
                             <Link to="/" className="turn_back">
-                                <img src={`${pathh}/get_pic/arrow_left.svg`} alt="Back" />
+                                <img src={`${pathh}/media/image/arrow_left.svg`} alt="Back" />
                             </Link>
                         </div>
                         <div className="comments_wrapper">
