@@ -8,7 +8,7 @@ const Register = () => {
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
         email: '',
-        nickname: '',
+        username: '',
         password: '',
     });
     const handleLogout = () => {
@@ -134,7 +134,7 @@ const Register = () => {
                                             required
                                             className="authin"
                                             placeholder="Your nickname"
-                                            value={formData.nickname}
+                                            value={formData.username}
                                             onChange={handleChange}
                                         />
                                     </div>
