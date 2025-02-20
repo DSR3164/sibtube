@@ -37,18 +37,17 @@ const Register = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+    
         try {
-            const response = await axios.post('/register', {
+            const response = await axios.post('/register', formData, {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(formData),
             });
-
+    
             const data = response.data;
-
-            if (response.status == 201) {
+    
+            if (response.status === 201) {
                 alert('Регистрация успешна!');
                 navigate('/login');
             } else {
@@ -59,6 +58,7 @@ const Register = () => {
             alert('Произошла ошибка. Попробуйте еще раз.');
         }
     };
+    
 
     return (
         <div>
