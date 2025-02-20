@@ -6,3 +6,5 @@ Flask_Bcrypt
 moviepy
 gunicorn
 python-dotenv
+PyMySQL
+flask-migrate

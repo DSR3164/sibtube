@@ -1,6 +1,7 @@
 import os
 import uuid
 from flask import Flask, jsonify, request, send_from_directory
+from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 from flask_jwt_extended import (
     JWTManager, create_access_token, jwt_required, 
@@ -12,10 +13,24 @@ from werkzeug.utils import secure_filename
 from models import db, Video, User, Comment
 
 app = Flask(__name__)
-app.config['JWT_SECRET_KEY'] = os.getenv("JWT_SECRET_KEY")
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
+host = os.getenv("MYSQLHOST")
+port = os.getenv("MYSQLPORT")
+user = os.getenv("MYSQLUSER")
+password = os.getenv("MYSQLPASSWORD")
+database = os.getenv("MYSQLDATABASE")
+
+# Для PyMySQL префикс "mysql+pymysql://"
+app.config["SQLALCHEMY_DATABASE_URI"] = f"mysql+pymysql://{user}:{password}@{host}:{port}/{database}"
+
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+
+db = SQLAlchemy(app)
+
+with app.app_context():
+    db.create_all()
+
+migrate = Migrate(app, db)
 jwt = JWTManager(app)
 bcrypt = Bcrypt(app)
 db.init_app(app)
