@@ -10,18 +10,19 @@ from flask_bcrypt import Bcrypt
 from moviepy import VideoFileClip
 from werkzeug.utils import secure_filename
 from models import db, Video, User, Comment
-from flask_migrate import Migrate
 
+os.makedirs("/instance", exist_ok=True)
 app = Flask(__name__)
 app.config['JWT_SECRET_KEY'] = os.getenv("JWT_SECRET_KEY")
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DB_URL")
+app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:////instance/database.db"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 jwt = JWTManager(app)
 bcrypt = Bcrypt(app)
 db.init_app(app)
 CORS(app)
-db.create_all()
+with app.app_context():
+    db.create_all()
 
 # Папки для хранения медиа
 VIDEO_FOLDER = 'media/videos'
