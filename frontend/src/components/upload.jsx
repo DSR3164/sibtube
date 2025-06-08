@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from '../components/axios';
-import '../static/css/style.css'; // Импорт стилей
+import '../static/css/style.css'; 
 
 const upload = () => {
-    const [showModal, setShowModal] = useState(false); // Состояние для отображения модального окна
+    const [showModal, setShowModal] = useState(false); 
     const [videos, setVideos] = useState([]);
     const navigate = useNavigate();
 
@@ -32,8 +32,8 @@ const upload = () => {
 
             if (response.status === 201) {
                 alert('Видео успешно загружено!');
-                setVideos([...videos, response.data]); // Обновляем список видео
-                setShowModal(false); // Закрываем модальное окно
+                setVideos([...videos, response.data]); 
+                setShowModal(false); 
             } else {
                 alert('Ошибка загрузки видео');
             }
@@ -47,7 +47,6 @@ const upload = () => {
         <div>
             <button onClick={() => setShowModal(true)}>Загрузить видео</button>
 
-            {/* Модальное окно */}
             {showModal && (
                 <div className="modal">
                     <div className="modal-content">

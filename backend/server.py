@@ -9,14 +9,14 @@ from flask_jwt_extended import (
 from flask_bcrypt import Bcrypt
 from moviepy import VideoFileClip
 from werkzeug.utils import secure_filename
-from server.models import db, Video, User, Comment
+from models import db, Video, User, Comment
 
 os.makedirs("/instance", exist_ok=True)
 app = Flask(__name__)
-app.config['JWT_SECRET_KEY'] = os.getenv("JWT_SECRET_KEY")
+app.config['JWT_SECRET_KEY'] = os.getenv("JWT_SECRET_KEY", "sjfoaiejofknalskdnf;ajeifj0w3ur0uw39riw")
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:////instance/database.db"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['MAX_CONTENT_LENGTH'] = 100 * 1024 * 1024  # 500MB
+# app.config['MAX_CONTENT_LENGTH'] = 1024 * 1024 * 1024
 
 
 jwt = JWTManager(app)

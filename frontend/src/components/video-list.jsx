@@ -5,7 +5,7 @@ function VideosList() {
     const [videos, setVideos] = useState([]);
 
     useEffect(() => {
-        // Запрос списка видео через axios
+        
         axios.get('/api/videos')
             .then(response => {
                 setVideos(response.data);

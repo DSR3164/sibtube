@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import islogin from '../components/islogin';
+import pathh from './path';
 const Header = () =>{
     const navigate = useNavigate();
     const handleLogout = () => {
         localStorage.removeItem('access_token');
-        navigate('/login');
     };
+
+    const handleLogin = () => {
+        navigate("/login")
+    }
 
     const handleAccount = () => {
         navigate("/account")
@@ -24,7 +28,7 @@ const Header = () =>{
                                 <img
                                     onClick={gomain}
                                     className="header-logo-link header-logo-pic"
-                                    src="http://localhost:5000/get_pic/logo.svg"
+                                    src={`${pathh}/media/image/logo.svg`}
                                     alt="Yadro"
                                 />
                         </div>
@@ -34,20 +38,20 @@ const Header = () =>{
                                     <img 
                                     className="logout-pic"
                                     onClick={handleLogout}
-                                    src="http://localhost:5000/get_pic/Exit.svg"
+                                    src={`${pathh}/media/image/Exit.svg`}
                                     alt="Exit"/>
                                 )
                                 :(
                                     <img 
-                                    className="logout-pic"
-                                    onClick={handleLogout}
-                                    src="http://localhost:5000/get_pic/Enter.svg"
-                                    alt="Exit"/>
+                                    className="login-pic"
+                                    onClick={handleLogin}
+                                    src={`${pathh}/media/image/Enter.svg`}
+                                    alt="Enter"/>
                                 )}
                                 <img
                                     className="user-pic"
                                     onClick={handleAccount}
-                                    src="http://localhost:5000/get_pic/UserCircle.svg"
+                                    src={`${pathh}/media/image/UserCircle.svg`}
                                     alt="Registration"
                                 />
                             </div>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from '../components/axios';
 import pathh from "../components/path";
-import islogin from '../components/islogin';
+import Header from '../components/header';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -57,44 +57,7 @@ const Login = () => {
 
     return (
         <div>
-            <header className="header">
-                <div className="wrapper">
-                    <div className="header-wrapper">
-                        <div className="header-logo">
-                                <img
-                                    onClick={gomain}
-                                    className="header-logo-link header-logo-pic"
-                                    src={`${pathh}/media/image/logo.svg`}
-                                    alt="Yadro"
-                                />
-                        </div>
-                        <nav className="header-nav">
-                            <div className="header-reg">
-                                {islogin ? (
-                                    <img 
-                                    className="logout-pic"
-                                    onClick={handleLogout}
-                                    src={`${pathh}/media/image/Exit.svg`}
-                                    alt="Exit"/>
-                                )
-                                :(
-                                    <img 
-                                    className="logout-pic"
-                                    onClick={handleLogout}
-                                    src={`${pathh}/media/image/Enter.svg`}
-                                    alt="Exit"/>
-                                )}
-                                <img
-                                    className="user-pic"
-                                    onClick={handleAccount}
-                                    src={`${pathh}/media/image/UserCircle.svg`}
-                                    alt="Registration"
-                                />
-                            </div>
-                        </nav>
-                    </div>
-                </div>
-            </header>
+            {Header()}
             <main className="main">
                 <section className="all" style={{background: `url('${pathh}/media/image/bg.png') no-repeat`}}>
                     <div className="form-reg">

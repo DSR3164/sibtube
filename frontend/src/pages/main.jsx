@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from '../components/axios';
+import Header from '../components/header';
 import pathh from "../components/path";
-import islogin from '../components/islogin';
-import '../static/css/style.css'; // Импорт стилей
+import '../static/css/style.css';
 const Mainn = () => {
     const [videos, setVideos] = useState([]);
     const navigate = useNavigate();
@@ -47,44 +47,7 @@ const Mainn = () => {
     
     return (
         <div>
-            <header className="header">
-                <div className="wrapper">
-                    <div className="header-wrapper">
-                        <div className="header-logo">
-                                <img
-                                    onClick={gomain}
-                                    className="header-logo-link header-logo-pic"
-                                    src={`${pathh}/media/image/logo.svg`}
-                                    alt="Yadro"
-                                />
-                        </div>
-                        <nav className="header-nav">
-                            <div className="header-reg">
-                                {islogin ? (
-                                    <img 
-                                    className="logout-pic"
-                                    onClick={handleLogout}
-                                    src={`${pathh}/media/image/Exit.svg`}
-                                    alt="Exit"/>
-                                )
-                                :(
-                                    <img 
-                                    className="logout-pic"
-                                    onClick={handleLogout}
-                                    src={`${pathh}/media/image/Enter.svg`}
-                                    alt="Exit"/>
-                                )}
-                                <img
-                                    className="user-pic"
-                                    onClick={handleAccount}
-                                    src={`${pathh}/media/image/UserCircle.svg`}
-                                    alt="Registration"
-                                />
-                            </div>
-                        </nav>
-                    </div>
-                </div>
-            </header>
+            {Header()}
             <main id="main" className="main">
                 <section className="all" style={{background: `url('${pathh}/media/image/bg.png') no-repeat`}}>
                     <section id="video_list" className="video_grid">

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from '../components/axios';
 import pathh from "../components/path";
-import islogin from '../components/islogin';
+import Header from '../components/header';
 
 const Account = () => {
     const [userData, setUserData] = useState({ username: '', email: '' });
@@ -36,7 +36,7 @@ const Account = () => {
                     return;
                 }
         
-                // Запрос данных пользователя
+                
                 const userResponse = await axios.get('/api/user/profile', {
                     headers: {
                         Authorization: `Bearer ${token}`,
@@ -44,7 +44,7 @@ const Account = () => {
                 });
                 setUserData(userResponse.data);
         
-                // Запрос видео
+                
                 const videosResponse = await axios.get('/api/user/videos', {
                     headers: {
                         Authorization: `Bearer ${token}`,
@@ -52,10 +52,10 @@ const Account = () => {
                 });
                 setVideos(videosResponse.data);
             } catch (error) {
-                // Перехват различных типов ошибок
+                
                 if (axios.isAxiosError(error)) {
                     if (error.response) {
-                        // Ответ от сервера с ошибкой
+                        
                         const status = error.response.status;
                         switch (status) {
                             case 401:
@@ -75,16 +75,16 @@ const Account = () => {
                                 alert(`Ошибка: ${error.response.data.message || 'Неизвестная ошибка'}`);
                         }
                     } else if (error.request) {
-                        // Ошибка сети или недоступности сервера
+                        
                         console.error('Ошибка сети:', error.request);
                         alert('Не удалось связаться с сервером. Проверьте подключение к интернету.');
                     } else {
-                        // Ошибка при настройке запроса
+                        
                         console.error('Ошибка запроса:', error.message);
                         alert('Произошла ошибка при запросе данных.');
                     }
                 } else {
-                    // Нестандартная ошибка
+                    
                     console.error('Ошибка:', error);
                     alert('Произошла неизвестная ошибка.');
                 }
@@ -129,8 +129,8 @@ const Account = () => {
 
             if (response.status === 201) {
                 alert('Видео успешно загружено!');
-                setVideos([...videos, response.data]); // Обновляем список видео
-                setShowModal(false); // Закрываем модальное окно
+                setVideos([...videos, response.data]); 
+                setShowModal(false); 
             } else {
                 alert('Ошибка загрузки видео');
             }
@@ -158,44 +158,7 @@ const Account = () => {
 
     return (
         <div className="all" style={{background: `url('${pathh}/media/image/bg.png') no-repeat`}}>
-            <header className="header">
-                <div className="wrapper">
-                    <div className="header-wrapper">
-                        <div className="header-logo">
-                                <img
-                                    onClick={gomain}
-                                    className="header-logo-link header-logo-pic"
-                                    src={`${pathh}/media/image/logo.svg`}
-                                    alt="Yadro"
-                                />
-                        </div>
-                        <nav className="header-nav">
-                            <div className="header-reg">
-                                {islogin ? (
-                                    <img 
-                                    className="logout-pic"
-                                    onClick={handleLogout}
-                                    src={`${pathh}/media/image/Exit.svg`}
-                                    alt="Exit"/>
-                                )
-                                :(
-                                    <img 
-                                    className="logout-pic"
-                                    onClick={handleLogout}
-                                    src={`${pathh}/media/image/Enter.svg`}
-                                    alt="Exit"/>
-                                )}
-                                <img
-                                    className="user-pic"
-                                    onClick={handleAccount}
-                                    src={`${pathh}/media/image/UserCircle.svg`}
-                                    alt="Registration"
-                                />
-                            </div>
-                        </nav>
-                    </div>
-                </div>
-            </header>
+            {Header()}
             <main>
                 <section className="user-profile">
                     <div className='user_wrapper'>

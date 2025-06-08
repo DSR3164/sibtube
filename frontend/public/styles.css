@@ -168,7 +168,7 @@ body{
   height: 48px;
 }
 
-.logout-pic, .user-pic{
+.logout-pic, .user-pic, .login-pic{
   margin-left: 10px;
   align-self: center;
   border: 0;
