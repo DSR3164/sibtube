@@ -502,6 +502,9 @@ body{
   width: 60vw;
   transition: all 0.1s;
   user-select: none;
+  aspect-ratio: 16 / 9;
+  background-color: #000;
+  border-radius: 10px 0 0 10px;
 }
 
 .chat_header{
@@ -518,6 +521,7 @@ body{
 
 .video_preview{
   border-radius: 4px;
+  aspect-ratio: 16/9;
 }
 
 .comments_wrapper {
