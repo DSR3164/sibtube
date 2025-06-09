@@ -28,34 +28,21 @@ const Mainn = () => {
         fetchVideos();
     }, [navigate]);
 
-    const handleLogout = () => {
-        localStorage.removeItem('access_token');
-        navigate('/login');
-    };
-
     const handleWatch = (n) =>{
         navigate(`/video/${n}`)
-    }
-
-    const handleAccount = () => {
-        navigate("/account")
-    }
-
-    const gomain = () => {
-        navigate("/")
     }
     
     return (
         <div>
-            {Header()}
+            <Header />
             <main id="main" className="main">
                 <section className="all" style={{background: `url('${pathh}/media/image/bg.png') no-repeat`}}>
+                    {videos.length > 0 ? (
                     <section id="video_list" className="video_grid">
-                        {videos.length > 0 ? (
-                            videos.map((video) => (
+                        {videos.map(video => (
                                 <div key={video.id} className="video_card">
                                     <img onClick={() => handleWatch(video.id)}
-                                        src={pathh + video.preview}
+                                        src={`${pathh}${video.preview}`}
                                         alt={video.title}
                                         className="video_preview"
                                     />
@@ -68,11 +55,13 @@ const Mainn = () => {
                                         </p>
                                     <p>{video.title}</p>
                                 </div>
-                            ))
-                        ) : (
-                            <p>Видео пока нет.</p>
-                        )}
+                        ))}
                     </section>
+                    ) : (
+                    <div className="err_wrapper">
+                        <p className="err_videos">Видео пока нет 😢</p>
+                    </div>
+                    )}
                 </section>
             </main>
         </div>

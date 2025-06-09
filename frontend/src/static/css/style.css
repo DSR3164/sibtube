@@ -368,6 +368,19 @@ body{
   display: none;
 }
 
+.err_wrapper {
+  justify-self: center;
+  background-color: #ffffff;
+  width: fit-content;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.err_videos {
+  font-size: large;
+  font-weight: 300;
+}
+
 .video_list {
   max-height: 90%;
   overflow-y: scroll;
